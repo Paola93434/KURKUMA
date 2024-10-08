@@ -20,9 +20,9 @@ class Pedido_model extends CI_Model {
     }
 
     public function obtenerDetallePedido($idPedido) {
-        $this->db->select('detalle_pedido.*, comidas.nombre as comida');
+        $this->db->select('detalle_pedido.*, platos.nombre as plato');
         $this->db->from('detalle_pedido');
-        $this->db->join('comidas', 'comidas.idComida = detalle_pedido.idComida');
+        $this->db->join('platos', 'platos.idPlato = detalle_pedido.idPlato');
         $this->db->where('detalle_pedido.idPedido', $idPedido);
         return $this->db->get()->result();
     }

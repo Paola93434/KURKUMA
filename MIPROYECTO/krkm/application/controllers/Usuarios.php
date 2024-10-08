@@ -7,10 +7,18 @@ class Usuarios extends CI_Controller {
         $this->load->view('usuarios/login');
     }
 
-    public function index() {
+    public function index() 
+    {
         $data['usuarios'] = $this->usuario_model->listar_usuarios();
-        $this->load->view('usuarios/listar', $data); // Asegúrate de que la vista 'listar.php' existe
+            $this->load->view('vistasP/header');
+            $this->load->view('vistasP/sidebar');
+			$this->load->view('usuarios/listar', $data);
+            //$this->load->view('vistasP/content');
+            $this->load->view('vistasP/footer');
+        //$data['usuarios'] = $this->usuario_model->listar_usuarios();
+        //$this->load->view('usuarios/listar', $data); // Asegúrate de que la vista 'listar.php' existe
     }
+    
 
     public function crear() {
         $this->load->view('usuarios/formulario'); // Asegúrate de que la vista 'formulario.php' existe
@@ -74,10 +82,10 @@ class Usuarios extends CI_Controller {
                     redirect('usuarios/index'); //usuarios index
                     break;
                 case 'Empleado':
-                    redirect('comidas'); // DE EMPLEADOS/COMIDAS
+                    redirect('platos'); // DE EMPLEADOS/platos
                     break;
                 case 'Cliente':
-                    redirect('cliente/menu'); //cliente/menu
+                    redirect('menu'); //cliente/menu
                     break;
                 default:
                     redirect('usuarios/login'); 
@@ -93,5 +101,14 @@ class Usuarios extends CI_Controller {
         $this->session->sess_destroy();
         redirect('usuarios/login');
     }
+
+            // application/controllers/Usuarios.php
+
+            public function cerrar_sesion()
+            {
+                $this->session->sess_destroy();
+                redirect('usuarios/login'); // Cambia 'login' por el nombre correcto de tu método o controlador
+            }
+
 }
 ?>

@@ -1,0 +1,40 @@
+:root {
+    --color-principal: #0B3D91;  /* Azul marino */
+    --color-secundario: #00A86B; /* Verde oscuro */
+    --color-texto: #FFFFFF;      /* Blanco para texto */
+    --color-fondo: #2C3E50;      /* Azul oscuro */
+    --color-borde: #BDC3C7;      /* Borde gris */
+    --color-peligro: #E74C3C;    /* Rojo (para botones de eliminar) */
+}
+
+/* Aplicar color principal al fondo del sidebar */
+.main-sidebar {
+    background-color: var(--color-principal);
+}
+
+/* Cambiar el color de los botones principales */
+.btn-primary {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+/* Color del texto */
+body, h1, h2, h3, p {
+    color: var(--color-texto);
+}
+
+/* Fondo general del cuerpo */
+body {
+    background-color: var(--color-fondo);
+}
+
+/* Estilos de borde */
+.table {
+    border-color: var(--color-borde);
+}
+
+/* Botones de peligro (Eliminar, advertencias, etc.) */
+.btn-danger {
+    background-color: var(--color-peligro);
+    border-color: var(--color-peligro);
+}

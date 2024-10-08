@@ -47,5 +47,11 @@ class Usuario_model extends CI_Model {
         $query = $this->db->get('usuarios');
         return $query->row_array(); // Devuelve un array con los datos del usuario
     }
+
+      // Método para obtener todos los usuarios
+      public function obtener_todos() {
+        $query = $this->db->get('usuarios'); // Cambia 'usuarios' por el nombre de tu tabla de usuarios
+        return $query->result_array(); // Devuelve el resultado como un array
+    }
 }
 ?>

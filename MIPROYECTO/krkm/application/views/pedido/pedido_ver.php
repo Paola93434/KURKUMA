@@ -4,11 +4,11 @@
 <p>Total: <?php echo $pedido->total; ?></p>
 <p>Estado: <?php echo $pedido->estado; ?></p>
 
-<h3>Comidas</h3>
+<h3>Platos</h3>
 <table>
     <thead>
         <tr>
-            <th>Comida</th>
+            <th>Plato</th>
             <th>Cantidad</th>
             <th>Precio</th>
         </tr>
@@ -16,7 +16,7 @@
     <tbody>
         <?php foreach ($detalle as $item): ?>
             <tr>
-                <td><?php echo $item->comida; ?></td>
+                <td><?php echo $item->plato; ?></td>
                 <td><?php echo $item->cantidad; ?></td>
                 <td><?php echo $item->precio; ?></td>
             </tr>

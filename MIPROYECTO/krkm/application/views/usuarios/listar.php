@@ -5,83 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f4f0f9; /* Color de fondo claro lila */
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .btn-custom {
-            background-color: #6c5b7b; /* Color lila oscuro */
-            color: #ffffff;
-        }
-        .btn-custom:hover {
-            background-color: #4a3f54; /* Lila más oscuro */
-            color: #ffffff;
-        }
-        .btn-primary-custom {
-            background-color: #9b59b6; /* Color lila claro */
-            color: #ffffff;
-        }
-        .btn-primary-custom:hover {
-            background-color: #8e44ad; /* Lila más oscuro */
-            color: #ffffff;
-        }
-        .btn-danger-custom {
-            background-color: #e74c3c; /* Color rojo brillante */
-            color: #ffffff;
-        }
-        .btn-danger-custom:hover {
-            background-color: #c0392b; /* Rojo más oscuro */
-            color: #ffffff;
-        }
-        .btn-success-custom {
-            background-color: #2ecc71; /* Color verde brillante */
-            color: #ffffff;
-        }
-        .btn-success-custom:hover {
-            background-color: #27ae60; /* Verde más oscuro */
-            color: #ffffff;
-        }
-        table {
-            background-color: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        thead th {
-            background-color: #d5a6f2; /* Lila pastel */
-            color: #4a3f54; /* Lila oscuro */
-            font-weight: bold;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #f9f6fd; /* Lila muy claro */
-        }
-        tbody tr:hover {
-            background-color: #e6e6fa; /* Lila claro al pasar el ratón */
-        }
-        h1 {
-            color: #9b59b6; /* Color lila claro */
-        }
-    </style>
+ <!-- Enlace al archivo CSS 
+ <link rel="stylesheet" href="<php echo base_url('assets/css/estilos.css'); ?>"> -->
 </head>
 <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Panel de Administración</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <!-- Menú desplegable -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Módulos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="<?php echo site_url('clientes'); ?>">Clientes</a>
+                        <a class="dropdown-item" href="<?php echo site_url('empleados'); ?>">Empleados</a>
+                    </div>
+                </li>
+
+                <!-- Botón de Cerrar Sesión -->
+                <li class="nav-item">
+                    <?php echo form_open('usuarios/logout'); ?>
+                    <button type="submit" class="btn btn-danger-custom">Cerrar Sesión</button>
+                    <?php echo form_close(); ?>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
     <div class="container mt-5">
         <div class="row mb-3">
             <div class="col-md-12">
-                <?php echo form_open('usuarios/logout'); ?>
-                <button type="submit" class="btn btn-danger-custom">Cerrar Sesión</button>
-                <?php echo form_close(); ?>
-                
-                <?php echo form_open('usuarios/crear'); ?>
-                <button type="submit" class="btn btn-primary-custom">Agregar Usuario</button>
-                <?php echo form_close(); ?>
-                
                 <h1 class="my-4 text-center">Lista de Usuarios</h1>
                 
+                <!-- Botón para agregar usuario -->
+                <div class="text-right mb-3">
+                    <?php echo form_open('usuarios/crear'); ?>
+                    <button type="submit" class="btn btn-primary-custom">Agregar Usuario</button>
+                    <?php echo form_close(); ?>
+                </div>
+
+                <!-- Tabla de usuarios -->
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -92,8 +62,7 @@
                             <th>Login</th>
                             <th>Tipo</th>
                             <th>Estado</th>
-                            <th>Modificar</th>
-                            <th>Eliminar</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,21 +78,24 @@
                                     <td><?php echo $usuario->tipo; ?></td>
                                     <td><?php echo $usuario->estado; ?></td>
                                     <td>
-                                        <?php echo form_open('usuarios/editar/'.$usuario->idUsuario); ?>
-                                        <button type="submit" class="btn btn-success-custom">Modificar</button>
-                                        <?php echo form_close(); ?>
-                                    </td>
-                                    <td>
-                                        <?php echo form_open('usuarios/eliminar/'.$usuario->idUsuario); ?>
-                                        <button type="submit" class="btn btn-danger-custom">Eliminar</button>
-                                        <?php echo form_close(); ?>
+                                        <div class="btn-group" role="group">
+                                            <!-- Botón para editar -->
+                                            <?php echo form_open('usuarios/editar/'.$usuario->idUsuario); ?>
+                                            <button type="submit" class="btn btn-success-custom btn-sm">Editar</button>
+                                            <?php echo form_close(); ?>
+
+                                            <!-- Botón para eliminar -->
+                                            <?php echo form_open('usuarios/eliminar/'.$usuario->idUsuario); ?>
+                                            <button type="submit" class="btn btn-danger-custom btn-sm">Eliminar</button>
+                                            <?php echo form_close(); ?>
+                                        </div>
                                     </td>
                                 </tr>
                                 <?php $indice++; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="9" class="text-center">No hay usuarios registrados.</td>
+                                <td colspan="8" class="text-center">No hay usuarios registrados.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>
@@ -131,5 +103,14 @@
             </div>
         </div>
     </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Usuarios. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

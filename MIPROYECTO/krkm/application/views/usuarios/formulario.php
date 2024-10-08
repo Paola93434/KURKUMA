@@ -5,42 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo isset($usuario) ? 'Modificar Usuario' : 'Crear Usuario'; ?></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin-top: 20px;
-        }
-        .btn-custom {
-            background-color: #007bff;
-            color: #ffffff;
-            font-size: 0.875rem; /* Tamaño de fuente más pequeño */
-            padding: 0.375rem 0.75rem; /* Padding reducido */
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-            color: #ffffff;
-        }
-        .btn-secondary-custom {
-            background-color: #6c757d;
-            color: #ffffff;
-            font-size: 0.875rem; /* Tamaño de fuente más pequeño */
-            padding: 0.375rem 0.75rem; /* Padding reducido */
-        }
-        .btn-secondary-custom:hover {
-            background-color: #5a6268;
-            color: #ffffff;
-        }
-        .form-control {
-            border-radius: 5px;
-        }
-    </style>
+   
 </head>
 <body>
     <div class="container">
@@ -81,7 +46,6 @@
             <label for="tipo">Tipo</label>
             <select class="form-control" id="tipo" name="tipo" required>
                 <option value="Administrador" <?php echo isset($usuario) && $usuario['tipo'] == 'Administrador' ? 'selected' : ''; ?>>Administrador</option>
-                <option value="Usuario" <?php echo isset($usuario) && $usuario['tipo'] == 'Usuario' ? 'selected' : ''; ?>>Usuario</option>
                 <option value="Empleado" <?php echo isset($usuario) && $usuario['tipo'] == 'Empleado' ? 'selected' : ''; ?>>Empleado</option>
                 <option value="Cliente" <?php echo isset($usuario) && $usuario['tipo'] == 'Cliente' ? 'selected' : ''; ?>>Cliente</option>
             </select>
