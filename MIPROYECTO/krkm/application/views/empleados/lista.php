@@ -1,6 +1,10 @@
 <div class="container mt-5">
     <div class="custom-card">
         <h1 class="text-center mb-4">Lista de Empleados</h1>
+
+        <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
+    
         <div class="d-flex justify-content-center mb-4">
 
             <a href="<?php echo site_url('empleados/crear'); ?>" class="btn btn-primary btn-add">Agregar Empleado</a>

@@ -12,9 +12,14 @@ class Empleados extends CI_Controller {
     }
 
     // Mostrar la lista de empleados
-    public function index() {
+    public function index() 
+    {
         $data['empleados'] = $this->Empleado_model->get_empleados();
-        $this->load->view('empleados/lista', $data);
+            $this->load->view('vistasP/header');
+            $this->load->view('vistasP/sidebar');
+			$this->load->view('empleados/lista', $data);
+            //$this->load->view('vistasP/content');
+            $this->load->view('vistasP/footer');
     }
 
     // Crear un nuevo empleado

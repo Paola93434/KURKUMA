@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- <!-- Enlace al archivo CSS 
- <link rel="stylesheet" href="<php echo base_url('assets/css/estilos.css'); ?>"> -->
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -53,7 +53,7 @@
 
                 <!-- Tabla de usuarios -->
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th>#</th>
                             <th>Nombre</th>
@@ -84,9 +84,9 @@
                                             <button type="submit" class="btn btn-success-custom btn-sm">Editar</button>
                                             <?php echo form_close(); ?>
 
-                                            <!-- Botón para eliminar -->
+                                            <!-- Botón para eliminar (con confirmación de eliminación) -->
                                             <?php echo form_open('usuarios/eliminar/'.$usuario->idUsuario); ?>
-                                            <button type="submit" class="btn btn-danger-custom btn-sm">Eliminar</button>
+                                            <button type="submit" class="btn btn-danger-custom btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">Eliminar</button>
                                             <?php echo form_close(); ?>
                                         </div>
                                     </td>

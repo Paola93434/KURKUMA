@@ -1,5 +1,6 @@
 <!-- application/views/cliente/menu.php -->
-
+<!-- Enlace al archivo CSS -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
 <h1>Menú de Platos</h1>
 <ul>
     <?php foreach ($platos as $plato): ?>

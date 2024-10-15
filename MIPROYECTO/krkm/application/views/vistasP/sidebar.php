@@ -30,19 +30,19 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/usuarios/admin.html" class="nav-link">
+            <a href="<?php echo site_url('usuarios'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Administradores</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/usuarios/clientes.html" class="nav-link">
+            <a href="<?php echo site_url('clientes'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Clientes</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/usuarios/empleados.html" class="nav-link">
+            <a href="<?php echo site_url('empleados'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Empleados</p>
               </a>
@@ -61,17 +61,20 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/menu/categorias.html" class="nav-link">
+              <a href="<?php echo site_url('usuarios/pages/platos/menu.php'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Categorías</p>
               </a>
             </li>
+         
             <li class="nav-item">
-              <a href="pages/menu/comidas.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Comidas</p>
-              </a>
+                <a href="<?php echo site_url('platos'); ?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Comidas</p>
+                </a>
             </li>
+
+
           </ul>
         </li>
 

@@ -8,10 +8,15 @@ class Clientes extends CI_Controller {
         $this->load->model('Cliente_model'); // Cargar el modelo de cliente
         $this->load->model('Usuario_model'); // Cargar el modelo de usuario
     }
-
-    public function index() {
+    
+    public function index() 
+    {
         $data['clientes'] = $this->Cliente_model->obtener_todos(); // Obtener todos los clientes
-        $this->load->view('clientes/listar', $data); // Cargar la vista para listar clientes
+            $this->load->view('vistasP/header');
+            $this->load->view('vistasP/sidebar');
+            $this->load->view('clientes/listar', $data); // Cargar la vista para listar clientes
+            //$this->load->view('vistasP/content');
+            $this->load->view('vistasP/footer');
     }
 
     public function crear() {

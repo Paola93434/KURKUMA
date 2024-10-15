@@ -1,3 +1,6 @@
+<!-- Enlace al archivo CSS -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
+
 <div class="container mt-5">
     <!-- Título centrado con estilo lila -->
     <h1 class="text-center mb-4" style="color: #6A1B9A; font-weight: bold; font-size: 32px;">Lista de Clientes</h1>

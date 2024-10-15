@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Platos del Menú</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
     <style>
         body {
             background-color: #f4f0f9; /* Color de fondo claro lila */

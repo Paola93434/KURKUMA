@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('usuario_model'); // Asegúrate de que este modelo está cargado
+    }
+
+    
     public function login() {
         $this->load->view('usuarios/login');
     }
@@ -13,7 +19,7 @@ class Usuarios extends CI_Controller {
             $this->load->view('vistasP/header');
             $this->load->view('vistasP/sidebar');
 			$this->load->view('usuarios/listar', $data);
-            //$this->load->view('vistasP/content');
+            $this->load->view('vistasP/content');
             $this->load->view('vistasP/footer');
         //$data['usuarios'] = $this->usuario_model->listar_usuarios();
         //$this->load->view('usuarios/listar', $data); // Asegúrate de que la vista 'listar.php' existe

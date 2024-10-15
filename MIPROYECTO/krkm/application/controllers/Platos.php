@@ -10,10 +10,16 @@ class Platos extends CI_Controller {
         $this->load->library('upload');
     }
 
-    public function index() {
+    public function index() 
+    {
         $data['platos'] = $this->Plato_model->obtener_platos();
-        $this->load->view('platos/listar', $data);
+            $this->load->view('vistasP/header');
+            $this->load->view('vistasP/sidebar');
+            $this->load->view('platos/listar', $data);
+            //$this->load->view('vistasP/content');
+            $this->load->view('vistasP/footer');
     }
+    
 
     public function crear() {
         $this->load->view('platos/crear');
