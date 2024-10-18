@@ -10,16 +10,13 @@ class Platos extends CI_Controller {
         $this->load->library('upload');
     }
 
-    public function index() 
-    {
-        $data['platos'] = $this->Plato_model->obtener_platos();
-            $this->load->view('vistasP/header');
-            $this->load->view('vistasP/sidebar');
-            $this->load->view('platos/listar', $data);
-            //$this->load->view('vistasP/content');
-            $this->load->view('vistasP/footer');
+    public function index() {
+        $data['platos'] = $this->Plato_model->getPlatos(); // Llama al método correcto
+        $this->load->view('vistasP/header');
+        $this->load->view('vistasP/sidebar');
+        $this->load->view('platos/listar', $data);
+        $this->load->view('vistasP/footer');
     }
-    
 
     public function crear() {
         $this->load->view('platos/crear');
@@ -33,7 +30,7 @@ class Platos extends CI_Controller {
         if ($this->upload->do_upload('imagen')) {
             $imagen = $this->upload->data('file_name');
         } else {
-            $imagen = '';
+            $imagen = ''; // Manejo de errores
         }
 
         $data = array(
@@ -48,9 +45,19 @@ class Platos extends CI_Controller {
         redirect('platos');
     }
 
-    public function editar($idPlato) {
-        $data['plato'] = $this->Plato_model->obtener_plato($idPlato);
+   /* public function editar($idPlato) {
+        $data['plato'] = $this->Plato_model->getPlatos($idPlato);
         $this->load->view('platos/editar', $data);
+    }*/
+    public function editar($idPlato) {
+        // Obtener el plato a editar
+        $data['plato'] = $this->Plato_model->obtener_plato($idPlato);
+
+        if (!$data['plato']) {
+            show_404(); // Si no se encuentra el plato, muestra un error 404
+        }
+
+        $this->load->view('platos/editar', $data); // Cargar la vista para editar
     }
 
     public function actualizar() {
@@ -83,11 +90,8 @@ class Platos extends CI_Controller {
         redirect('platos');
     }
 
-    public function menu() { //Menú de los platos
-        // Obtener los platos de la base de datos
-        $data['platos'] = $this->Plato_model->get_all_platos();
-        
-        // Cargar la vista del menú para el cliente
+    public function menu() { // Menú de los platos
+        $data['platos'] = $this->Plato_model->get_platos(); // Llama al método que devuelve los platos
         $this->load->view('platos/menu', $data);
     }
 }

@@ -30,4 +30,12 @@ class Cliente_model extends CI_Model {
     public function eliminar($id) {
         $this->db->delete('clientes', array('idCliente' => $id)); // Eliminar cliente
     }
+
+    public function getClientes() {
+        $query = $this->db->get('clientes'); // Asumiendo que la tabla se llama 'clientes'
+        return $query->result(); // Retorna un array de objetos
+    }
+    
+
+
 }

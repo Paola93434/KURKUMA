@@ -5,44 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Empleados</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f4f0f9;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .btn-custom {
-            background-color: #6c5b7b;
-            color: #ffffff;
-        }
-        .btn-custom:hover {
-            background-color: #4a3f54;
-            color: #ffffff;
-        }
-        table {
-            background-color: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        thead th {
-            background-color: #d5a6f2;
-            color: #4a3f54;
-            font-weight: bold;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #f9f6fd;
-        }
-        tbody tr:hover {
-            background-color: #e6e6fa;
-        }
-        h1 {
-            color: #9b59b6;
-        }
-    </style>
+   
 </head>
 <body>
     <div class="container mt-4">

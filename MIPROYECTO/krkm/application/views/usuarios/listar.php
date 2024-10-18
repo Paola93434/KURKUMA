@@ -1,53 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Panel de Administración</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-                <!-- Menú desplegable -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Módulos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?php echo site_url('clientes'); ?>">Clientes</a>
-                        <a class="dropdown-item" href="<?php echo site_url('empleados'); ?>">Empleados</a>
-                    </div>
-                </li>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <h4 class="text-center">Menú</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url('usuarios'); ?>">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url('platos'); ?>">Platos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url('usuarios/login'); ?>">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
-                <!-- Botón de Cerrar Sesión -->
-                <li class="nav-item">
-                    <?php echo form_open('usuarios/logout'); ?>
-                    <button type="submit" class="btn btn-danger-custom">Cerrar Sesión</button>
-                    <?php echo form_close(); ?>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Contenedor principal -->
-    <div class="container mt-5">
-        <div class="row mb-3">
-            <div class="col-md-12">
+            <!-- Contenido principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
                 <h1 class="my-4 text-center">Lista de Usuarios</h1>
-                
+
                 <!-- Botón para agregar usuario -->
                 <div class="text-right mb-3">
                     <?php echo form_open('usuarios/crear'); ?>
-                    <button type="submit" class="btn btn-primary-custom">Agregar Usuario</button>
+                    <button type="submit" class="btn btn-primary">Agregar Usuario</button>
                     <?php echo form_close(); ?>
                 </div>
 
@@ -81,12 +69,16 @@
                                         <div class="btn-group" role="group">
                                             <!-- Botón para editar -->
                                             <?php echo form_open('usuarios/editar/'.$usuario->idUsuario); ?>
-                                            <button type="submit" class="btn btn-success-custom btn-sm">Editar</button>
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                <i class="fas fa-edit"></i> Modificar
+                                            </button>
                                             <?php echo form_close(); ?>
 
-                                            <!-- Botón para eliminar (con confirmación de eliminación) -->
+                                            <!-- Botón para eliminar -->
                                             <?php echo form_open('usuarios/eliminar/'.$usuario->idUsuario); ?>
-                                            <button type="submit" class="btn btn-danger-custom btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">Eliminar</button>
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
+                                                <i class="fas fa-trash-alt"></i> Eliminar
+                                            </button>
                                             <?php echo form_close(); ?>
                                         </div>
                                     </td>
@@ -100,17 +92,8 @@
                         <?php endif; ?>
                     </tbody>
                 </table>
-            </div>
+            </main>
         </div>
     </div>
-
-    <!-- Pie de página -->
-    <footer class="footer">
-        <p>&copy; 2024 Sistema de Usuarios. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

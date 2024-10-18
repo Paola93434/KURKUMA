@@ -3,28 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pedido_model extends CI_Model {
 
-    public function crearPedido($data) {
+    // Obtener todos los pedidos
+    public function getPedidos() {
+        $this->db->select('p.idPedido, c.nombre AS nombreCliente, p.fecha_pedido, p.total, p.estado');
+        $this->db->from('pedidos p');
+        $this->db->join('clientes c', 'p.cliente_id = c.idCliente');
+        return $this->db->get()->result_array();
+    }
+
+    // Insertar un nuevo pedido
+    public function insertPedido($data) {
         $this->db->insert('pedidos', $data);
-        return $this->db->insert_id();
+        return $this->db->insert_id(); // Devuelve el id del nuevo pedido
     }
 
-    public function agregarDetallePedido($detalle) {
-        $this->db->insert_batch('detalle_pedido', $detalle);
+    // Insertar los detalles del pedido
+    public function insertDetallePedido($data) {
+        $this->db->insert_batch('pedido_platos', $data); // Insertar múltiples filas a la vez
     }
 
-    public function obtenerPedidos() {
-        $this->db->select('pedidos.*, usuarios.nombre as cliente');
-        $this->db->from('pedidos');
-        $this->db->join('usuarios', 'usuarios.idUsuario = pedidos.idCliente');
-        return $this->db->get()->result();
-    }
-
-    public function obtenerDetallePedido($idPedido) {
-        $this->db->select('detalle_pedido.*, platos.nombre as plato');
-        $this->db->from('detalle_pedido');
-        $this->db->join('platos', 'platos.idPlato = detalle_pedido.idPlato');
-        $this->db->where('detalle_pedido.idPedido', $idPedido);
-        return $this->db->get()->result();
+    // Obtener detalles de un pedido específico
+    public function getPedidoById($idPedido) {
+        $this->db->select('pp.*, pl.nombre, pl.precio');
+        $this->db->from('pedido_platos pp');
+        $this->db->join('platos pl', 'pp.idPlato = pl.idPlato');
+        $this->db->where('pp.idPedido', $idPedido);
+        return $this->db->get()->result_array();
     }
 }
-?>

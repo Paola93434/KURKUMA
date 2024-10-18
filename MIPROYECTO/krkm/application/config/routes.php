@@ -67,6 +67,12 @@ $route['clientes/actualizar/(:num)'] = 'clientes/actualizar/$1';
 $route['clientes/eliminar/(:num)'] = 'clientes/eliminar/$1';
 //$route['default_controller'] = 'clientes';
 
+$route['pedidos'] = 'pedidos/index';                         // Ruta para listar pedidos
+$route['pedidos/listar'] = 'pedidos/listar';       // Ver los detalles de un pedido específico
+$route['pedidos/crear'] = 'Pedidos/crear';             // Ruta para crear un nuevo pedido
+$route['pedidos/editar/(:num)'] = 'Pedidos/editar/$1'; // Ruta para editar un pedido específico
+$route['pedidos/eliminar/(:num)'] = 'Pedidos/eliminar/$1'; // Ruta para eliminar un pedido específico
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

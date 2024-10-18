@@ -60,12 +60,7 @@
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?php echo site_url('usuarios/pages/platos/menu.php'); ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Categorías</p>
-              </a>
-            </li>
+           
          
             <li class="nav-item">
                 <a href="<?php echo site_url('platos'); ?>" class="nav-link">
@@ -80,7 +75,7 @@
 
         <!-- Gestión de Pedidos -->
         <li class="nav-item">
-          <a href="pages/pedidos/pedidos.html" class="nav-link">
+        <a href="<?php echo site_url('pedidos'); ?>" class="nav-link">
             <i class="nav-icon fas fa-receipt"></i>
             <p>Gestión de Pedidos</p>
           </a>
