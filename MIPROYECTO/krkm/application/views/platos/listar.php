@@ -47,18 +47,18 @@
                             <?php foreach ($platos as $plato): ?>
                                 <tr>
                                     <th><?php echo $indice; ?></th>
-                                    <td><?php echo $plato['nombre']; ?></td>
-                                    <td><?php echo $plato['descripcion']; ?></td>
-                                    <td><?php echo $plato['precio']; ?></td>
-                                    <td><?php echo $plato['categoria']; ?></td>
+                                    <td><?php echo $plato->nombre; ?></td>
+                                    <td><?php echo $plato->descripcion; ?></td>
+                                    <td><?php echo $plato->precio; ?></td>
+                                    <td><?php echo $plato->categoria; ?></td>
                                     <td>
-                                        <?php if ($plato['imagen']): ?>
-                                            <img src="<?php echo base_url('uploads/' . $plato['imagen']); ?>" alt="Imagen de plato" width="100" class="img-fluid">
+                                        <?php if ($plato->imagen): ?>
+                                            <img src="<?php echo base_url('uploads/' . $plato->imagen); ?>" alt="Imagen de plato" width="100" class="img-fluid">
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo site_url('platos/editar/' . $plato['idPlato']); ?>" class="btn btn-success btn-sm">Modificar</a>
-                                        <?php echo form_open('platos/eliminar/' . $plato['idPlato'], ['style' => 'display:inline']); ?>
+                                        <a href="<?php echo site_url('platos/editar/' . $plato->idPlato); ?>" class="btn btn-success btn-sm">Modificar</a>
+                                        <?php echo form_open('platos/eliminar/' . $plato->idPlato, ['style' => 'display:inline']); ?>
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                         <?php echo form_close(); ?>
                                     </td>

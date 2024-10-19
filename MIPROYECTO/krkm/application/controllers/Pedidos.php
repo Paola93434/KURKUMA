@@ -10,11 +10,12 @@ class Pedidos extends CI_Controller {
         $this->load->model('Plato_Model');
         
         // Verificar si el usuario está autenticado
-      /*  if (!$this->session->userdata('idUsuario')) {
+        if (!$this->session->userdata('idUsuario')) {
             redirect('login'); // Redirigir al login si no está autenticado
-        }*/
+        }
     }
 
+    // Listar todos los pedidos
     public function index() {
         $data['pedidos'] = $this->Pedido_Model->getPedidos();
         $this->load->view('vistasP/header');
@@ -26,8 +27,7 @@ class Pedidos extends CI_Controller {
     // Mostrar formulario para crear un pedido
     public function crear() {
         $data['clientes'] = $this->Cliente_Model->getClientes();
-        // Cambiar getPedidos() por getPlatos() para obtener la lista de platos
-        $data['platos'] = $this->Plato_Model->getPlatos(); // Asegúrate de que este método exista en Plato_Model
+        $data['platos'] = $this->Plato_Model->getPlatos(); // Obtener lista de platos
         $this->load->view('pedidos/crear', $data);
     }
 
@@ -36,22 +36,23 @@ class Pedidos extends CI_Controller {
         // Obtener idUsuario desde la sesión
         $usuario_id = $this->session->userdata('idUsuario');
 
-        // Verificar que el usuario_id no sea NULL
+        // Verificar si el usuario está autenticado
         if ($usuario_id === NULL) {
-            // Manejo de error: el usuario no está autenticado
             $this->session->set_flashdata('error', 'Debes estar autenticado para realizar un pedido.');
-            redirect('login'); // Redirigir al login o a donde desees
-            return; // Terminar la ejecución del método
+            redirect('login');
+            return;
         }
 
+        // Guardar datos del pedido
         $pedidoData = [
             'cliente_id' => $this->input->post('cliente_id'),
-            'usuario_id' => $usuario_id, // Usuario logueado
-            'fecha_pedido' => date('Y-m-d H:i:s'), // Fecha actual
+            'usuario_id' => $usuario_id,
+            'fecha_pedido' => date('Y-m-d H:i:s'),
             'total' => $this->input->post('total'),
             'estado' => 1 // Estado inicial "Pendiente"
         ];
 
+        // Insertar el pedido
         $idPedido = $this->Pedido_Model->insertPedido($pedidoData);
 
         // Insertar detalles del pedido
@@ -67,9 +68,11 @@ class Pedidos extends CI_Controller {
             ];
         }
 
+        // Guardar detalles del pedido
         $this->Pedido_Model->insertDetallePedido($detalles);
 
-        redirect('pedidos'); // Redirigir a la lista de pedidos
+        // Redirigir a la lista de pedidos
+        redirect('pedidos');
     }
 
     // Ver detalles de un pedido

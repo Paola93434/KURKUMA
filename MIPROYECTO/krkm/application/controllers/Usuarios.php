@@ -8,28 +8,26 @@ class Usuarios extends CI_Controller {
         $this->load->model('usuario_model'); // Asegúrate de que este modelo está cargado
     }
 
-    
+    // Método para mostrar el formulario de login
     public function login() {
         $this->load->view('usuarios/login');
     }
 
-    public function index() 
-    {
+    // Método para listar todos los usuarios
+    public function index() {
         $data['usuarios'] = $this->usuario_model->listar_usuarios();
-            $this->load->view('vistasP/header');
-            $this->load->view('vistasP/sidebar');
-			$this->load->view('usuarios/listar', $data);
-            //$this->load->view('vistasP/content');
-            $this->load->view('vistasP/footer');
-        //$data['usuarios'] = $this->usuario_model->listar_usuarios();
-        //$this->load->view('usuarios/listar', $data); // Asegúrate de que la vista 'listar.php' existe
+        $this->load->view('vistasP/header');
+        $this->load->view('vistasP/sidebar');
+        $this->load->view('usuarios/listar', $data);
+        $this->load->view('vistasP/footer');
     }
-    
 
+    // Método para mostrar el formulario de creación de usuarios
     public function crear() {
         $this->load->view('usuarios/formulario'); // Asegúrate de que la vista 'formulario.php' existe
     }
 
+    // Método para guardar un nuevo usuario en la base de datos
     public function guardarbd() {
         $data = array(
             'nombre' => $this->input->post('nombre'),
@@ -46,11 +44,13 @@ class Usuarios extends CI_Controller {
         redirect('usuarios/index');
     }
 
+    // Método para mostrar el formulario de edición de un usuario
     public function editar($id) {
         $data['usuario'] = $this->usuario_model->obtener_usuario($id);
         $this->load->view('usuarios/formulario', $data);
     }
 
+    // Método para actualizar los datos de un usuario
     public function modificarbd() {
         $idUsuario = $this->input->post('idUsuario');
         $data = array(
@@ -67,11 +67,13 @@ class Usuarios extends CI_Controller {
         redirect('usuarios/index');
     }
 
+    // Método para eliminar un usuario
     public function eliminar($id) {
         $this->usuario_model->eliminar_usuario($id);
         redirect('usuarios/index');
     }
 
+    // Método para autenticar a un usuario
     public function autenticar() {
         $login = $this->input->post('login');
         $password = $this->input->post('password');
@@ -79,19 +81,21 @@ class Usuarios extends CI_Controller {
         $usuario = $this->usuario_model->verificarUsuario($login);
 
         if ($usuario && password_verify($password, $usuario['password'])) {
+            // Almacena datos del usuario en la sesión
             $this->session->set_userdata('login', $usuario['login']);
             $this->session->set_userdata('tipo', $usuario['tipo']);
             $this->session->set_userdata('idusuario', $usuario['idUsuario']);
             
+            // Redirige según el tipo de usuario
             switch ($usuario['tipo']) {
                 case 'Administrador':
-                    redirect('usuarios/index'); //usuarios index
+                    redirect('usuarios/index'); // Redirige a la vista de usuarios
                     break;
                 case 'Empleado':
-                    redirect('platos'); // DE EMPLEADOS/platos
+                    redirect('platos'); // Redirige a la vista de platos
                     break;
                 case 'Cliente':
-                    redirect('menu'); //cliente/menu
+                    redirect('menu'); // Redirige a la vista del menú
                     break;
                 default:
                     redirect('usuarios/login'); 
@@ -103,18 +107,16 @@ class Usuarios extends CI_Controller {
         }
     }
 
+    // Método para cerrar sesión
     public function logout() {
         $this->session->sess_destroy();
         redirect('usuarios/login');
     }
 
-            // application/controllers/Usuarios.php
-
-            public function cerrar_sesion()
-            {
-                $this->session->sess_destroy();
-                redirect('usuarios/login'); // Cambia 'login' por el nombre correcto de tu método o controlador
-            }
-
+    // Método adicional para cerrar sesión (duplicado)
+    public function cerrar_sesion() {
+        $this->session->sess_destroy();
+        redirect('usuarios/login'); // Redirige al login
+    }
 }
 ?>
