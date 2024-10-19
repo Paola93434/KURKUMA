@@ -28,7 +28,7 @@
                 <div class="form-row mb-3 align-items-center">
                     <div class="col-md-6">
                         <label>
-                            <input type="checkbox" name="platos[]" value="<?= $plato['idPlato']; ?>"> <?= $plato['nombre']; ?>
+                            <input type="checkbox" name="platos[]" value="<?= $plato->idPlato; ?>"> <?= $plato->nombre; ?>
                         </label>
                     </div>
                     <div class="col-md-6">

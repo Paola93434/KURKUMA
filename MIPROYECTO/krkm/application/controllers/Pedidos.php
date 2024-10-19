@@ -15,10 +15,12 @@ class Pedidos extends CI_Controller {
         }*/
     }
 
-    // Mostrar todos los pedidos
     public function index() {
         $data['pedidos'] = $this->Pedido_Model->getPedidos();
+        $this->load->view('vistasP/header');
+        $this->load->view('vistasP/sidebar');
         $this->load->view('pedidos/listar', $data);
+        $this->load->view('vistasP/footer');
     }
 
     // Mostrar formulario para crear un pedido

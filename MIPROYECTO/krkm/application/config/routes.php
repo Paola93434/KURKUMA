@@ -73,6 +73,16 @@ $route['pedidos/crear'] = 'Pedidos/crear';             // Ruta para crear un nue
 $route['pedidos/editar/(:num)'] = 'Pedidos/editar/$1'; // Ruta para editar un pedido específico
 $route['pedidos/eliminar/(:num)'] = 'Pedidos/eliminar/$1'; // Ruta para eliminar un pedido específico
 
+$route['ventas'] = 'ventas/index';
+$route['ventas/crear'] = 'ventas/crear';
+$route['ventas/ver/(:num)'] = 'ventas/ver/$1';
+$route['ventas/eliminar/(:num)'] = 'ventas/eliminar/$1';
+
+$route['reportes'] = 'reportes/index';
+$route['reportes/crear'] = 'reportes/crear';
+$route['reportes/almacenar'] = 'reportes/almacenar';
+$route['reportes/eliminar/(:num)'] = 'reportes/eliminar/$1';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

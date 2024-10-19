@@ -83,7 +83,7 @@
 
         <!-- Gestión de Ventas -->
         <li class="nav-item">
-          <a href="pages/ventas/ventas.html" class="nav-link">
+        <a href="<?php echo site_url('ventas'); ?>" class="nav-link">
             <i class="nav-icon fas fa-cash-register"></i>
             <p>Gestión de Ventas</p>
           </a>
@@ -100,7 +100,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/reportes/ventas.html" class="nav-link">
+            <a href="<?php echo site_url('reportes'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Reportes de Ventas</p>
               </a>

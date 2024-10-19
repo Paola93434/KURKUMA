@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Pedidos</title>
+    <title>Lista de Ventas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
+    <!-- Incluir Font Awesome para los iconos -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -23,7 +24,7 @@
                             <a class="nav-link" href="<?php echo site_url('clientes'); ?>">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo site_url('pedidos'); ?>">Pedidos</a>
+                            <a class="nav-link active" href="<?php echo site_url('ventas'); ?>">Ventas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url('usuarios/login'); ?>">Cerrar Sesión</a>
@@ -34,49 +35,43 @@
 
             <!-- Contenido principal -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
-                <h1 class="text-center mb-4">Lista de Pedidos</h1>
+                <!-- Título centrado -->
+                <h1 class="text-center mb-4">Lista de Ventas</h1>
 
-                <!-- Botón para agregar un nuevo pedido alineado a la derecha -->
+                <!-- Botón de agregar venta alineado a la derecha -->
                 <div class="d-flex justify-content-end mb-4">
-                    <a href="<?php echo site_url('pedidos/crear'); ?>" class="btn btn-primary">Nuevo Pedido</a>
+                    <a href="<?php echo site_url('ventas/crear'); ?>" class="btn btn-primary">Nueva Venta</a>
                 </div>
 
                 <!-- Tabla -->
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>ID Pedido</th>
+                        <thead class="thead-light">
+                            <tr style="text-align: center;">
+                                <th>ID Venta</th>
                                 <th>Cliente</th>
-                                <th>Fecha</th>
                                 <th>Total</th>
-                                <th>Estado</th>
+                                <th>Fecha</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (!empty($pedidos)): ?>
-                                <?php foreach ($pedidos as $pedido): ?>
-                                    <tr>
-                                        <td><?php echo $pedido['idPedido']; ?></td>
-                                        <td><?php echo $pedido['nombreCliente']; ?></td>
-                                        <td><?php echo $pedido['fecha_pedido']; ?></td>
-                                        <td>$<?php echo number_format($pedido['total'], 2); ?></td>
-                                        <td>
-                                            <span class="badge <?= $pedido['estado'] == 1 ? 'badge-warning' : 'badge-success'; ?>">
-                                                <?= $pedido['estado'] == 1 ? 'Pendiente' : 'Completado'; ?>
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <a href="<?php echo site_url('pedidos/ver/' . $pedido['idPedido']); ?>" class="btn btn-info btn-sm">Ver Detalles</a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
+                            <?php foreach ($ventas as $venta): ?>
                                 <tr>
-                                    <td colspan="6" class="text-center">No hay pedidos registrados.</td>
+                                    <td style="text-align: center; vertical-align: middle;"><?php echo $venta->idVenta; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $venta->nombreCliente; ?></td>
+                                    <td style="vertical-align: middle;">$<?php echo number_format($venta->total, 2); ?></td>
+                                    <td style="vertical-align: middle;"><?php echo date('d-m-Y', strtotime($venta->fecha_venta)); ?></td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <a href="<?php echo site_url('ventas/ver/'.$venta->idVenta); ?>" class="btn btn-sm btn-info">
+                                            <i class="fas fa-eye"></i> Ver Detalles
+                                        </a>
+                                        <a href="<?php echo site_url('ventas/eliminar/'.$venta->idVenta); ?>" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i> Eliminar
+                                        </a>
+                                    </td>
                                 </tr>
-                            <?php endif; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

@@ -7,11 +7,18 @@ class Plato_model extends CI_Model {
         parent::__construct();
         $this->load->database();
     }
-
+/*
     public function getPlatos() {
         // Obtener todos los platos de la tabla "platos"
         $query = $this->db->get('platos');
         return $query->result_array(); // Devolver los resultados como un array asociativo
+    }*/
+      // Método para obtener todos los platos
+      public function getPlatos() {
+        $this->db->select('*');
+        $this->db->from('platos');
+        $query = $this->db->get();
+        return $query->result(); // Devuelve la lista de platos
     }
 
     public function obtener_plato($idPlato) {

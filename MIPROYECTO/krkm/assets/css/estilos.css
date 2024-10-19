@@ -8,50 +8,54 @@
     --color-hover: #0A579B;      /* Color para hover en menú */
 }
 
-@media (max-width: 768px) {
-    .main-sidebar {
-        width: 200px; /* Ajusta el tamaño para pantallas pequeñas */
-        transition: all 0.3s;
-    }
-    .content-wrapper {
-        margin-left: 200px;
-    }
-}
-
+/* Sidebar estilo principal */
 .main-sidebar {
-    width: 250px;
+    width: 250px;  /* Ancho del sidebar */
     background-color: var(--color-principal);
     transition: all 0.3s;
+    position: fixed; /* Mantiene el sidebar fijo */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
 }
 
+/* Estilo de los elementos del menú */
 .main-sidebar .nav-item .nav-link {
     color: var(--color-texto);
     transition: background-color 0.3s, color 0.3s;
     padding: 10px 15px;
 }
 
+/* Estilo para el hover en el menú */
 .main-sidebar .nav-item .nav-link:hover {
     background-color: var(--color-hover);
     color: var(--color-secundario);
 }
 
+/* Contenido principal */
 .content-wrapper {
-    margin-left: 250px;
+    margin-left: 250px; /* Espacio para el sidebar */
     padding: 20px;
     background-color: var(--color-fondo);
+    transition: margin-left 0.3s; /* Transición suave para el margen */
 }
 
+/* Colores para los títulos y párrafos del contenido */
 .content-wrapper h1, .content-wrapper h2, .content-wrapper p {
     color: var(--color-texto);
 }
 
-.nav-icon {
-    margin-right: 10px;
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .main-sidebar {
+        width: 200px; /* Ajusta el tamaño para pantallas pequeñas */
+    }
+    .content-wrapper {
+        margin-left: 200px; /* Margen para pantallas pequeñas */
+    }
 }
 
 /* Botón colapsable para dispositivos móviles */
 .sidebar-collapse {
-    display: none;
+    display: none; /* Oculta el botón por defecto */
     background-color: var(--color-principal);
     color: var(--color-texto);
     font-size: 20px;
@@ -60,26 +64,28 @@
     text-align: center;
 }
 
+/* Mostrar el botón colapsable en pantallas pequeñas */
 @media (max-width: 768px) {
     .sidebar-collapse {
-        display: block;
+        display: block; /* Muestra el botón en pantallas pequeñas */
     }
     .main-sidebar {
-        position: absolute;
-        left: -250px;
+        position: absolute; /* Cambio de posición para móviles */
+        left: -250px; /* Esconde el sidebar fuera de la vista */
         top: 0;
         height: 100%;
-        z-index: 1000;
-        transition: left 0.3s ease-in-out;
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        transition: left 0.3s ease-in-out; /* Transición suave para el colapso */
     }
     .main-sidebar.show {
-        left: 0;
+        left: 0; /* Muestra el sidebar cuando está activo */
     }
     .content-wrapper {
-        margin-left: 0;
+        margin-left: 0; /* Sin margen en móviles */
     }
 }
 
+/* Wrapper para el contenido */
 .wrapper {
     padding: 20px;
     background-color: #f9f9f9;
@@ -87,6 +93,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Botones personalizados */
 .btn-success-custom {
     background-color: #28a745;
     border-color: #28a745;
@@ -97,6 +104,7 @@
     border-color: #dc3545;
 }
 
+/* Estilo de la tabla */
 .table {
     background-color: white;
     border-radius: 5px;
@@ -104,6 +112,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo de la barra de navegación */
 .navbar {
     background-color: #343a40;
 }
