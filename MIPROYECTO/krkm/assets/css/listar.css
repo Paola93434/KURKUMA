@@ -1,0 +1,160 @@
+/* Estilo global */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;  /* Cambia la fuente a Roboto */
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #343a40;
+    padding: 20px;
+}
+
+.sidebar h4 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sidebar .nav-link {
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007bff;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #0056b3;
+    border-radius: 4px;
+}
+
+/* Estilo de la tabla */
+.table {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.table td {
+    padding: 12px;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #d9e2f3;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo de los botones */
+.btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos y encabezados */
+h1, h4 {
+    color: #007bff;
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Personalización de las imágenes */
+img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* Efectos adicionales */
+table thead th {
+    position: relative;
+}
+
+table thead th::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 80%;
+    height: 2px;
+    background-color: white;
+    transform: translateX(-50%);
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.main-content .btn {
+    margin-bottom: 20px;
+}
+
+/* Efecto en los links del menú */
+.sidebar .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    color: #007bff;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
