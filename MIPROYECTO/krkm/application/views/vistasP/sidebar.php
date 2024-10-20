@@ -1,6 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
+  <a href="<?php echo site_url('dashboard'); ?>" class="brand-link">
+    <img src="<?php echo base_url('uploads/img/logok.jpg'); ?>" alt="KurkumaLogo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Kurkuma</span>
   </a>
 
@@ -11,7 +12,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Dashboard -->
         <li class="nav-item">
-          <a href="dashboard.html" class="nav-link">
+        <a href="<?php echo site_url('dashboard'); ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -30,19 +31,19 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-            <a href="<?php echo site_url('usuarios'); ?>" class="nav-link">
+              <a href="<?php echo site_url('usuarios'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Administradores</p>
               </a>
             </li>
             <li class="nav-item">
-            <a href="<?php echo site_url('clientes'); ?>" class="nav-link">
+              <a href="<?php echo site_url('clientes'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Clientes</p>
               </a>
             </li>
             <li class="nav-item">
-            <a href="<?php echo site_url('empleados'); ?>" class="nav-link">
+              <a href="<?php echo site_url('empleados'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Empleados</p>
               </a>
@@ -60,22 +61,18 @@
             </p>
           </a>
           <ul class="nav nav-treeview">
-           
-         
             <li class="nav-item">
-                <a href="<?php echo site_url('platos'); ?>" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Comidas</p>
-                </a>
+              <a href="<?php echo site_url('platos'); ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Comidas</p>
+              </a>
             </li>
-
-
           </ul>
         </li>
 
         <!-- Gestión de Pedidos -->
         <li class="nav-item">
-        <a href="<?php echo site_url('pedidos'); ?>" class="nav-link">
+          <a href="<?php echo site_url('pedidos'); ?>" class="nav-link">
             <i class="nav-icon fas fa-receipt"></i>
             <p>Gestión de Pedidos</p>
           </a>
@@ -83,7 +80,7 @@
 
         <!-- Gestión de Ventas -->
         <li class="nav-item">
-        <a href="<?php echo site_url('ventas'); ?>" class="nav-link">
+          <a href="<?php echo site_url('ventas'); ?>" class="nav-link">
             <i class="nav-icon fas fa-cash-register"></i>
             <p>Gestión de Ventas</p>
           </a>
@@ -100,7 +97,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-            <a href="<?php echo site_url('reportes'); ?>" class="nav-link">
+              <a href="<?php echo site_url('reportes'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Reportes de Ventas</p>
               </a>

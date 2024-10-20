@@ -1,0 +1,39 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>Kurkuma Dashboard</h1>
+    </section>
+    
+    <section class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="fas fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Usuarios Activos</span>
+                        <span class="info-box-number">150</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-dollar-sign"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Ventas Totales</span>
+                        <span class="info-box-number">$2,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Actividades Recientes</h3>
+                <ul>
+                    <li>Usuario Juan ha iniciado sesión.</li>
+                    <li>Se ha agregado un nuevo producto.</li>
+                    <li>Informe mensual generado.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>

@@ -22,16 +22,16 @@ class Dashboard extends CI_Controller {
     }
 
     // Método que carga el dashboard
-    public function index()
-    {
+    
+    public function index() {
         // Cargar datos adicionales desde el modelo, si es necesario
         $data['estadisticas'] = $this->dashboard_model->obtener_estadisticas();
         $data['usuarios_activos'] = $this->dashboard_model->obtener_usuarios_activos();
 
-        // Cargar vistas con header y footer
-        $this->load->view('inc/header');
+        $this->load->view('vistasP/header');
+       // $this->load->view('vistasP/sidebar');
         $this->load->view('dashboard', $data);  // Pasar los datos a la vista
-        $this->load->view('inc/footer');
+        $this->load->view('vistasP/footer');
     }
 }
 ?>

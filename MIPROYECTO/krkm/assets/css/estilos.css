@@ -1,32 +1,48 @@
 :root {
-    --color-principal: #0B3D91;  /* Azul marino */
-    --color-secundario: #00A86B; /* Verde oscuro */
-    --color-texto: #FFFFFF;      /* Blanco para texto */
-    --color-fondo: #2C3E50;      /* Azul oscuro */
-    --color-borde: #BDC3C7;      /* Borde gris */
-    --color-peligro: #E74C3C;    /* Rojo (para botones de eliminar) */
-    --color-hover: #0A579B;      /* Color para hover en menú */
+    /* Colores */
+    --color-principal: #0B3D91;   /* Azul marino */
+    --color-secundario: #00A86B;   /* Verde oscuro */
+    --color-terciario: #FF5733;    /* Rojo intenso */
+    --color-cuaternario: #FFC300;   /* Amarillo brillante */
+    --color-texto: #FFFFFF;        /* Blanco para texto */
+    --color-fondo: #2C3E50;        /* Azul oscuro */
+    --color-borde: #BDC3C7;        /* Borde gris */
+    --color-peligro: #E74C3C;      /* Rojo (para botones de eliminar) */
+    --color-hover: #0A579B;        /* Color para hover en menú */
+    --color-tabla-fondo: #f9f9f9;  /* Color de fondo de la tabla */
+    --color-sombra: rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
 
-/* Sidebar estilo principal */
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente general */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+}
+
+/* Sidebar */
 .main-sidebar {
-    width: 250px;  /* Ancho del sidebar */
+    width: 250px; /* Ancho del sidebar */
     background-color: var(--color-principal);
     transition: all 0.3s;
     position: fixed; /* Mantiene el sidebar fijo */
     height: 100%; /* Ocupa toda la altura de la pantalla */
+    box-shadow: 4px 0 10px var(--color-sombra); /* Sombra más pronunciada para el sidebar */
 }
 
-/* Estilo de los elementos del menú */
+/* Elementos del menú */
 .main-sidebar .nav-item .nav-link {
     color: var(--color-texto);
     transition: background-color 0.3s, color 0.3s;
-    padding: 10px 15px;
+    padding: 12px 15px; /* Espacio aumentado para mejor usabilidad */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-weight: bold; /* Texto en negrita para mayor legibilidad */
 }
 
-/* Estilo para el hover en el menú */
+/* Hover en el menú */
 .main-sidebar .nav-item .nav-link:hover {
-    background-color: var(--color-hover);
+    background-color: var(--color-terciario); /* Cambia a un color más vibrante */
     color: var(--color-secundario);
 }
 
@@ -35,28 +51,28 @@
     margin-left: 250px; /* Espacio para el sidebar */
     padding: 20px;
     background-color: var(--color-fondo);
-    transition: margin-left 0.3s; /* Transición suave para el margen */
+    transition: margin-left 0.3s;
 }
 
-/* Colores para los títulos y párrafos del contenido */
+/* Estilo de títulos y párrafos */
 .content-wrapper h1, .content-wrapper h2, .content-wrapper p {
     color: var(--color-texto);
 }
 
-/* Ajustes para pantallas pequeñas */
+/* Responsive */
 @media (max-width: 768px) {
     .main-sidebar {
-        width: 200px; /* Ajusta el tamaño para pantallas pequeñas */
+        width: 200px; /* Ancho reducido en pantallas pequeñas */
     }
     .content-wrapper {
-        margin-left: 200px; /* Margen para pantallas pequeñas */
+        margin-left: 200px; /* Ajuste del margen */
     }
 }
 
 /* Botón colapsable para dispositivos móviles */
 .sidebar-collapse {
-    display: none; /* Oculta el botón por defecto */
-    background-color: var(--color-principal);
+    display: none; /* Oculto por defecto */
+    background-color: var(--color-secundario);
     color: var(--color-texto);
     font-size: 20px;
     cursor: pointer;
@@ -64,21 +80,21 @@
     text-align: center;
 }
 
-/* Mostrar el botón colapsable en pantallas pequeñas */
+/* Mostrar el botón en pantallas pequeñas */
 @media (max-width: 768px) {
     .sidebar-collapse {
-        display: block; /* Muestra el botón en pantallas pequeñas */
+        display: block; /* Muestra el botón en móviles */
     }
     .main-sidebar {
-        position: absolute; /* Cambio de posición para móviles */
+        position: absolute; /* Cambio de posición */
         left: -250px; /* Esconde el sidebar fuera de la vista */
         top: 0;
         height: 100%;
-        z-index: 1000; /* Asegura que esté por encima de otros elementos */
-        transition: left 0.3s ease-in-out; /* Transición suave para el colapso */
+        z-index: 1000;
+        transition: left 0.3s ease-in-out; /* Transición suave */
     }
     .main-sidebar.show {
-        left: 0; /* Muestra el sidebar cuando está activo */
+        left: 0; /* Mostrar sidebar */
     }
     .content-wrapper {
         margin-left: 0; /* Sin margen en móviles */
@@ -88,20 +104,36 @@
 /* Wrapper para el contenido */
 .wrapper {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: var(--color-tabla-fondo);
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px var(--color-sombra); /* Sombra más profunda */
 }
 
 /* Botones personalizados */
 .btn-success-custom {
     background-color: #28a745;
     border-color: #28a745;
+    color: var(--color-texto);
+    padding: 10px 15px;
+    border-radius: 6px; /* Bordes más redondeados */
+    transition: background-color 0.3s;
+}
+
+.btn-success-custom:hover {
+    background-color: #218838; /* Color más oscuro al pasar el mouse */
 }
 
 .btn-danger-custom {
     background-color: #dc3545;
     border-color: #dc3545;
+    color: var(--color-texto);
+    padding: 10px 15px;
+    border-radius: 6px; /* Bordes más redondeados */
+    transition: background-color 0.3s;
+}
+
+.btn-danger-custom:hover {
+    background-color: #c82333; /* Color más oscuro al pasar el mouse */
 }
 
 /* Estilo de la tabla */
@@ -109,10 +141,41 @@
     background-color: white;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--color-sombra); /* Sombra más profunda */
 }
 
 /* Estilo de la barra de navegación */
 .navbar {
     background-color: #343a40;
+}
+
+/* Estilos adicionales para la tabla */
+.table th, .table td {
+    padding: 15px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+    border-bottom: 2px solid var(--color-borde); /* Línea de separación más gruesa */
+}
+
+.table th {
+    background-color: var(--color-secundario); /* Color de fondo de los encabezados */
+    color: var(--color-texto); /* Color del texto de los encabezados */
+    font-weight: bold; /* Negrita para encabezados */
+}
+
+/* Estilo para mensajes de alerta */
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold; /* Negrita para mejor legibilidad */
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
 }
