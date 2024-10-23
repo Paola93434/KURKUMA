@@ -1,0 +1,172 @@
+/* Estilo general */
+body {
+    background-color: #f5f8fa; /* Color de fondo suave */
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aseguramos que todos los elementos usen el box-sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 100%; /* Que tome el 100% del ancho de la pantalla */
+    width: 90%; /* Mantiene márgenes en pantallas pequeñas */
+    margin: 20px auto;
+    background-color: white; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título */
+h1 {
+    font-size: 2.5rem; /* Ajuste relativo al tamaño de la pantalla */
+    color: #007bff; /* Azul fuerte */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra del texto */
+    text-align: center;
+}
+
+/* Estilo de los campos del formulario */
+.form-control {
+    width: 100%; /* Que el input tome el 100% del ancho disponible */
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem; /* Relativo para ajustarse mejor */
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Hover y foco en inputs */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Sombra en foco */
+}
+
+/* Estilo de etiquetas */
+label {
+    font-size: 1.2rem; /* Ajustable para cualquier pantalla */
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    width: 100%; /* Que el botón sea responsivo */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    margin-bottom: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.3); /* Efecto hover */
+    transform: translateY(-2px); /* Movimiento sutil */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    width: 100%; /* Para adaptarse mejor en móviles */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Botón de archivo */
+.form-control-file {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.form-control-file:hover {
+    background-color: #e2e6ea;
+}
+
+/* Estilo para mensajes de error */
+.form-error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Botón para regresar */
+.mt-2 {
+    margin-top: 20px;
+}
+
+/* Efecto hover para imagen */
+img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* MEDIA QUERIES */
+
+/* Para pantallas de menos de 768px (tabletas y móviles) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Ajusta el tamaño del título */
+    }
+
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .form-control {
+        font-size: 1rem; /* Ajusta el tamaño del texto */
+        padding: 10px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px; /* Ajusta tamaño de botones */
+        font-size: 1rem;
+    }
+}
+
+/* Para pantallas de menos de 576px (móviles pequeños) */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.8rem; /* Ajusta el título para pantallas muy pequeñas */
+    }
+
+    .container {
+        padding: 10px;
+        margin: 5px auto;
+    }
+
+    .form-control {
+        font-size: 0.9rem; /* Ajuste menor en inputs */
+        padding: 8px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}

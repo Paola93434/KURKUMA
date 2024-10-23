@@ -6,6 +6,7 @@
     <title>Agregar Plato</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/estilos.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/vistas.css'); ?>">
 </head>
 <body>
     <div class="container">
