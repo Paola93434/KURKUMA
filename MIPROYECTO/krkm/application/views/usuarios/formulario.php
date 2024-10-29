@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,13 +35,18 @@
         </div>
         
         <div class="form-group">
-            <label for="primerApellido">Primer Apellido</label>
-            <input type="text" class="form-control" id="primerApellido" name="primerApellido" value="<?php echo isset($usuario) ? $usuario['primerApellido'] : ''; ?>" placeholder="Ingrese su primer apellido" required>
+            <label for="apellidoPaterno">Apellido Paterno</label>
+            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" value="<?php echo isset($usuario) ? $usuario['apellidoPaterno'] : ''; ?>" placeholder="Ingrese su apellido paterno" required>
         </div>
         
         <div class="form-group">
-            <label for="segundoApellido">Segundo Apellido</label>
-            <input type="text" class="form-control" id="segundoApellido" name="segundoApellido" value="<?php echo isset($usuario) ? $usuario['segundoApellido'] : ''; ?>" placeholder="Ingrese su segundo apellido" required>
+            <label for="apellidoMaterno">Apellido Materno</label>
+            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" value="<?php echo isset($usuario) ? $usuario['apellidoMaterno'] : ''; ?>" placeholder="Ingrese su apellido materno" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="celular">Celular</label>
+            <input type="text" class="form-control" id="celular" name="celular" value="<?php echo isset($usuario) ? $usuario['celular'] : ''; ?>" placeholder="Ingrese su número de celular" required>
         </div>
         
         <div class="form-group">
@@ -57,17 +62,16 @@
         <div class="form-group">
             <label for="tipo">Tipo</label>
             <select class="form-control" id="tipo" name="tipo" required>
-                <option value="Administrador" <?php echo isset($usuario) && $usuario['tipo'] == 'Administrador' ? 'selected' : ''; ?>>Administrador</option>
-                <option value="Empleado" <?php echo isset($usuario) && $usuario['tipo'] == 'Empleado' ? 'selected' : ''; ?>>Empleado</option>
-                <option value="Cliente" <?php echo isset($usuario) && $usuario['tipo'] == 'Cliente' ? 'selected' : ''; ?>>Cliente</option>
+                <option value="administrador" <?php echo isset($usuario) && $usuario['tipo'] == 'administrador' ? 'selected' : ''; ?>>Administrador</option>
+                <option value="empleado" <?php echo isset($usuario) && $usuario['tipo'] == 'empleado' ? 'selected' : ''; ?>>Empleado</option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="estado">Estado</label>
             <select class="form-control" id="estado" name="estado" required>
-                <option value="Activo" <?php echo isset($usuario) && $usuario['estado'] == 'Activo' ? 'selected' : ''; ?>>Activo</option>
-                <option value="Inactivo" <?php echo isset($usuario) && $usuario['estado'] == 'Inactivo' ? 'selected' : ''; ?>>Inactivo</option>
+                <option value="1" <?php echo isset($usuario) && $usuario['estado'] == '1' ? 'selected' : ''; ?>>Activo</option>
+                <option value="0" <?php echo isset($usuario) && $usuario['estado'] == '0' ? 'selected' : ''; ?>>Inactivo</option>
             </select>
         </div>
         

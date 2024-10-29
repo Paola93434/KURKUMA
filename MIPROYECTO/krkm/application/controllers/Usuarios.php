@@ -13,9 +13,9 @@ class Usuarios extends CI_Controller {
         $this->load->view('usuarios/login');
     }
 
-    // Método para listar todos los usuarios
+    // Método para listar todos los usuarios (solo los activos)
     public function index() {
-        $data['usuarios'] = $this->usuario_model->listar_usuarios();
+        $data['usuarios'] = $this->usuario_model->listar_usuarios(); // Filtra usuarios activos
         $this->load->view('vistasP/header');
         $this->load->view('vistasP/sidebar');
         $this->load->view('usuarios/listar', $data);
@@ -31,14 +31,15 @@ class Usuarios extends CI_Controller {
     public function guardarbd() {
         $data = array(
             'nombre' => $this->input->post('nombre'),
-            'primerApellido' => $this->input->post('primerApellido'),
-            'segundoApellido' => $this->input->post('segundoApellido'),
+            'apellidoPaterno' => $this->input->post('apellidoPaterno'),
+            'apellidoMaterno' => $this->input->post('apellidoMaterno'), // Puede estar vacío
+            'celular' => $this->input->post('celular'),
             'login' => $this->input->post('login'),
             'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
             'tipo' => $this->input->post('tipo'),
             'estado' => $this->input->post('estado'),
             'fechaCreacion' => date('Y-m-d H:i:s'),
-            'ultimaActualizacion' => date('Y-m-d H:i:s')
+            'fechaEliminacion' => NULL // No debe estar eliminado al crear
         );
         $this->usuario_model->insertar_usuario($data);
         redirect('usuarios/index');
@@ -55,8 +56,9 @@ class Usuarios extends CI_Controller {
         $idUsuario = $this->input->post('idUsuario');
         $data = array(
             'nombre' => $this->input->post('nombre'),
-            'primerApellido' => $this->input->post('primerApellido'),
-            'segundoApellido' => $this->input->post('segundoApellido'),
+            'apellidoPaterno' => $this->input->post('apellidoPaterno'),
+            'apellidoMaterno' => $this->input->post('apellidoMaterno'), // Puede estar vacío
+            'celular' => $this->input->post('celular'),
             'login' => $this->input->post('login'),
             'password' => !empty($this->input->post('password')) ? password_hash($this->input->post('password'), PASSWORD_BCRYPT) : $this->input->post('current_password'),
             'tipo' => $this->input->post('tipo'),
@@ -67,9 +69,9 @@ class Usuarios extends CI_Controller {
         redirect('usuarios/index');
     }
 
-    // Método para eliminar un usuario
+    // Método para eliminar un usuario lógicamente
     public function eliminar($id) {
-        $this->usuario_model->eliminar_usuario($id);
+        $this->usuario_model->eliminar_usuario($id); // Este método debe establecer la fecha de eliminación
         redirect('usuarios/index');
     }
 
@@ -88,13 +90,13 @@ class Usuarios extends CI_Controller {
             
             // Redirige según el tipo de usuario
             switch ($usuario['tipo']) {
-                case 'Administrador':
+                case 'administrador':
                     redirect('usuarios/index'); // Redirige a la vista de usuarios
                     break;
-                case 'Empleado':
+                case 'empleado':
                     redirect('platos'); // Redirige a la vista de platos
                     break;
-                case 'Cliente':
+                case 'cliente':
                     redirect('menu'); // Redirige a la vista del menú
                     break;
                 default:
@@ -112,11 +114,4 @@ class Usuarios extends CI_Controller {
         $this->session->sess_destroy();
         redirect('usuarios/login');
     }
-
-    // Método adicional para cerrar sesión (duplicado)
-    public function cerrar_sesion() {
-        $this->session->sess_destroy();
-        redirect('usuarios/login'); // Redirige al login
-    }
 }
-?>

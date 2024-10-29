@@ -22,7 +22,7 @@
                             <a class="nav-link" href="<?php echo site_url('platos'); ?>">Platos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('usuarios/login'); ?>">Cerrar Sesión</a>
+                            <a class="nav-link" href="<?php echo site_url('usuarios/logout'); ?>">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -45,8 +45,9 @@
                         <tr>
                             <th>#</th>
                             <th>Nombre</th>
-                            <th>Primer Apellido</th>
-                            <th>Segundo Apellido</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Celular</th>
                             <th>Login</th>
                             <th>Tipo</th>
                             <th>Estado</th>
@@ -54,28 +55,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if ($usuarios->num_rows() > 0): ?>
+                        <?php if (!empty($usuarios)): ?>
                             <?php $indice = 1; ?>
-                            <?php foreach ($usuarios->result() as $usuario): ?>
+                            <?php foreach ($usuarios as $usuario): ?>
                                 <tr>
                                     <th><?php echo $indice; ?></th>
                                     <td><?php echo $usuario->nombre; ?></td>
-                                    <td><?php echo $usuario->primerApellido; ?></td>
-                                    <td><?php echo $usuario->segundoApellido; ?></td>
+                                    <td><?php echo $usuario->apellidoPaterno; ?></td>
+                                    <td><?php echo $usuario->apellidoMaterno; ?></td>
+                                    <td><?php echo $usuario->celular; ?></td>
                                     <td><?php echo $usuario->login; ?></td>
                                     <td><?php echo $usuario->tipo; ?></td>
-                                    <td><?php echo $usuario->estado; ?></td>
+                                    <td><?php echo ($usuario->estado) ? 'Activo' : 'Inactivo'; ?></td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <!-- Botón para editar -->
-                                            <?php echo form_open('usuarios/editar/'.$usuario->idUsuario); ?>
+                                            <?php echo form_open('usuarios/editar/' . $usuario->idUsuario); ?>
                                             <button type="submit" class="btn btn-success btn-sm">
                                                 <i class="fas fa-edit"></i> Modificar
                                             </button>
                                             <?php echo form_close(); ?>
 
                                             <!-- Botón para eliminar -->
-                                            <?php echo form_open('usuarios/eliminar/'.$usuario->idUsuario); ?>
+                                            <?php echo form_open('usuarios/eliminar/' . $usuario->idUsuario); ?>
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
                                                 <i class="fas fa-trash-alt"></i> Eliminar
                                             </button>
@@ -87,7 +89,7 @@
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="8" class="text-center">No hay usuarios registrados.</td>
+                                <td colspan="9" class="text-center">No hay usuarios registrados.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>
@@ -95,5 +97,6 @@
             </main>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
