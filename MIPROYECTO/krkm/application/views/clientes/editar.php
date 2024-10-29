@@ -60,73 +60,9 @@
 
         <!-- Botón "Actualizar" centrado -->
         <div class="d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-primary" style="background-color: #7E57C2; border: none; padding: 12px 30px; font-size: 18px; border-radius: 30px;">Actualizar</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #7E57C2; border: none; padding: 12px 30px; font-size: 18px; border-radius: 30px; transition: background-color 0.3s ease;">Actualizar</button>
         </div>
 
         <?php echo form_close(); ?>
     </div>
 </div>
-
-<!-- CSS -->
-<style>
-    /* Contenedor centrado y fondo */
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #F3E5F5;
-    }
-
-    /* Tarjeta con bordes redondeados */
-    .card {
-        border-radius: 15px;
-        border: 2px solid #7E57C2;
-        background-color: #fff;
-        padding: 30px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Títulos y etiquetas con estilo */
-    .font-weight-bold {
-        font-weight: 600;
-        color: #4A148C;
-    }
-
-    /* Botones */
-    .btn-block {
-        background-color: #7E57C2;
-        color: #fff;
-        font-weight: bold;
-        padding: 12px;
-        border-radius: 25px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-block:hover {
-        background-color: #5E35B1;
-    }
-
-    /* Inputs con efectos visuales */
-    .form-control {
-        border-radius: 8px;
-        border: 1px solid #D1C4E9;
-        padding: 12px;
-        transition: border-color 0.3s ease;
-    }
-
-    .form-control:focus {
-        border-color: #7E57C2;
-        box-shadow: 0px 0px 8px rgba(126, 87, 194, 0.2);
-    }
-
-    /* Mejoras en la sombra del formulario */
-    .card.shadow-lg {
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Espaciado entre campos */
-    .form-group {
-        margin-bottom: 20px;
-    }
-</style>

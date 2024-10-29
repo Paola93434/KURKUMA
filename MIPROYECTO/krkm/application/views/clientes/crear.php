@@ -7,32 +7,23 @@
         <?php echo form_open('clientes/guardar'); ?>
 
         <div class="form-group">
-            <label for="idUsuario" style="color: #6A1B9A; font-weight: bold;">Usuario</label>
-            <select name="idUsuario" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
-                <?php foreach ($usuarios as $usuario): ?>
-                    <option value="<?php echo $usuario['idUsuario']; ?>"><?php echo $usuario['login']; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-
-        <div class="form-group">
             <label for="nombre" style="color: #6A1B9A; font-weight: bold;">Nombre</label>
             <input type="text" name="nombre" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
         </div>
 
         <div class="form-group">
-            <label for="apellido" style="color: #6A1B9A; font-weight: bold;">Apellido</label>
-            <input type="text" name="apellido" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
+            <label for="apellidoPaterno" style="color: #6A1B9A; font-weight: bold;">Apellido Paterno</label>
+            <input type="text" name="apellidoPaterno" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
         </div>
 
         <div class="form-group">
-            <label for="email" style="color: #6A1B9A; font-weight: bold;">Email</label>
-            <input type="email" name="email" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
+            <label for="apellidoMaterno" style="color: #6A1B9A; font-weight: bold;">Apellido Materno</label>
+            <input type="text" name="apellidoMaterno" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
         </div>
 
         <div class="form-group">
-            <label for="telefono" style="color: #6A1B9A; font-weight: bold;">Teléfono</label>
-            <input type="text" name="telefono" class="form-control" style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
+            <label for="celular" style="color: #6A1B9A; font-weight: bold;">Celular</label>
+            <input type="text" name="celular" class="form-control" required style="border-radius: 10px; border: 2px solid #6A1B9A; padding: 12px;">
         </div>
 
         <div class="form-group">
@@ -56,27 +47,3 @@
         <?php echo form_close(); ?>
     </div>
 </div>
-
-<!-- CSS adicional para mejor diseño -->
-<style>
-    body {
-        background-color: #F8EAF6;
-    }
-
-    .form-control:hover, .form-control:focus {
-        border-color: #8E24AA;
-        box-shadow: 0 0 8px rgba(142, 36, 170, 0.2);
-    }
-
-    .btn-primary:hover {
-        background-color: #5E35B1;
-        opacity: 0.9;
-    }
-
-    .card {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        border: none;
-    }
-</style>
-
-

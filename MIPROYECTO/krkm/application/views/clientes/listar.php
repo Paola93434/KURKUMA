@@ -47,9 +47,12 @@
                             <tr style="text-align: center;">
                                 <th>#</th>
                                 <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Email</th>
-                                <th>Teléfono</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Celular</th>
+                                <th>Login</th>
+                                <th>Dirección</th>
+                                <th>Fecha de Registro</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
@@ -59,9 +62,12 @@
                                 <tr>
                                     <td style="text-align: center; vertical-align: middle;"><?php echo $cliente['idCliente']; ?></td>
                                     <td style="vertical-align: middle;"><?php echo $cliente['nombre']; ?></td>
-                                    <td style="vertical-align: middle;"><?php echo $cliente['apellido']; ?></td>
-                                    <td style="vertical-align: middle;"><?php echo $cliente['email']; ?></td>
-                                    <td style="vertical-align: middle;"><?php echo $cliente['telefono']; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $cliente['apellidoPaterno']; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $cliente['apellidoMaterno']; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $cliente['celular']; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $cliente['login']; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $cliente['direccion']; ?></td>
+                                    <td style="vertical-align: middle;"><?php echo $cliente['fechaRegistro']; ?></td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <?php echo ($cliente['estado'] == 1) ? '<span class="badge badge-success">Activo</span>' : '<span class="badge badge-secondary">Inactivo</span>'; ?>
                                     </td>
